@@ -79,3 +79,8 @@ if (file_exists(__DIR__.'/config_override.php')) {
 if (file_exists(__DIR__.'/config_local.php')) {
     $loader->import('config_local.php');
 }
+
+$parameters = [
+    'transifex_user' => 'development@flat-engine.com',
+    'transifex_password' => '8a90%I8J$y$25lYV'
+];

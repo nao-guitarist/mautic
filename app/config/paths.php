@@ -8,6 +8,19 @@
  *
  * @license     GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
+
+if ( !empty( $_SERVER ) ) {
+    $host = $_SERVER['HTTP_HOST'];
+}
+
+if ( $host === 'localhost:8001') {
+    $local_config = '%kernel.root_dir%/config/local_example1.php';
+} else if ( $host === 'localhost:8088') {
+    $local_config = '%kernel.root_dir%/config/local_example2.php';
+} else {
+    $local_config = '%kernel.root_dir%/config/local.php';
+}
+
 $paths = [
     //customizable
     'themes'       => 'themes',
@@ -15,7 +28,7 @@ $paths = [
     'asset_prefix' => '',
     'plugins'      => 'plugins',
     'translations' => 'translations',
-    'local_config' => '%kernel.root_dir%/config/local.php',
+    'local_config' => $local_config,
 ];
 
 //allow easy overrides of the above
